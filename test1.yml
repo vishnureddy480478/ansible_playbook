@@ -20,7 +20,7 @@
       shell: cd "/tmp/apache-tomcat-9.0.10/bin/; nohup ./startup.sh &"
       become: true
       
-    - name: ==> startup qle tomcat , path = {{ tomcat_path }}/bin/startup.sh
+    - name: ==> startup tomcat , path = {{ tomcat_path }}/bin/startup.sh
       shell: setsid /bin/sh -i -c "{{ tomcat_path }}/bin/startup.sh"
            
       
