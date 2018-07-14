@@ -1,0 +1,18 @@
+---
+- hosts: dev
+  gather_facts: no
+  tasks:
+    - name: Install java
+      shell: yum install java-1.8.0-openjdk -y
+      ignore_errors: yes
+      become: true
+      
+    - name: copy war file
+      copy:
+        src: "{{ workspace }}/gameoflife-0.0.1.war"
+        dest: "/tmp/apache-tomcat-9.0.10/webapps/gameoflife-0.0.1.war" 
+        mode: 0777
+        
+    - name: Start Tomcat server
+      shell: cd "/tmp/apache-tomcat-9.0.10/bin/; ./startup.sh"
+      become: true   
