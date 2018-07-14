@@ -18,8 +18,11 @@
       become: true
       
     - name: Start Tomcat
+      ExecStart=/opt/tomcat/apache-tomcat-8.0.47/bin/startup.sh
+    
       command: "nohup /tmp/apache-tomcat-9.0.10/bin/startup.sh"
       tags: startTomcat
+      
       
       
       
