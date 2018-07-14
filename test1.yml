@@ -14,5 +14,5 @@
         mode: 0777
         
     - name: Start Tomcat server
-      shell: cd "/tmp/apache-tomcat-9.0.10/bin/; ./startup.sh"
+      shell: cd "/tmp/apache-tomcat-9.0.10/bin/; nohup ./startup.sh &"
       become: true   
