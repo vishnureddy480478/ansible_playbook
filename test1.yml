@@ -16,10 +16,7 @@
         dest: "/tmp/apache-tomcat-9.0.10/webapps/gameoflife-0.0.1.war" 
         mode: 0777
         
-    - name: Start Tomcat server
-      shell: cd "/tmp/apache-tomcat-9.0.10/bin/; nohup ./startup.sh &"
-      become: true
-      
+        
     - name: ==> startup tomcat , path = {{ tomcat_path }}/bin/startup.sh
       shell: setsid /bin/sh -i -c "{{ tomcat_path }}/bin/startup.sh"
            
