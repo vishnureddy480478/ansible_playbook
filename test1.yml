@@ -1,6 +1,9 @@
 ---
 - hosts: dev
   gather_facts: no
+  vars:
+    tomcat_path: "/tmp/apache-tomcat-9.0.10"
+    
   tasks:
     - name: Install java
       shell: yum install java-1.8.0-openjdk -y
@@ -17,8 +20,8 @@
       shell: cd "/tmp/apache-tomcat-9.0.10/bin/; nohup ./startup.sh &"
       become: true
       
-    - name: Start Tomcat
-      ExecStart='/opt/tomcat/apache-tomcat-8.0.47/bin/startup.sh' 
+    - name: ==> startup qle tomcat , path = {{ tomcat_path }}/bin/startup.sh
+      shell: setsid /bin/sh -i -c "{{ tomcat_path }}/bin/startup.sh"
            
       
       
