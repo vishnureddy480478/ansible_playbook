@@ -15,4 +15,11 @@
         
     - name: Start Tomcat server
       shell: cd "/tmp/apache-tomcat-9.0.10/bin/; nohup ./startup.sh &"
-      become: true   
+      become: true
+      
+    - name: Start Tomcat
+      command: "nohup /tmp/apache-tomcat-9.0.10/bin/startup.sh"
+      tags: startTomcat
+      
+      
+      
