@@ -1,5 +1,5 @@
 ---
-- hosts: dev
+- hosts: dev1
   gather_facts: no
   tasks:
     - name: Install Java
