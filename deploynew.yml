@@ -1,0 +1,22 @@
+---
+- hosts: dev
+  gather_facts: no
+  tasks:
+    - name: Install Java
+      shell: yum install java-1.8.0-openjdk -y
+      become: true
+      
+    - name: creating a directory
+      file:
+        path: /tmp/gamefolder
+        state: directory
+
+    - name: copy war file 
+      copy: 
+        src: "{{ workspace }}/gameoflife-0.0.1.war"
+        dest: "/tmp/gamefolder/gameoflife-0.0.1.war"
+        mode: 0777
+
+    - name: executing war
+      shell: "cd /tmp/gamefolder/; nohup java -jar gameoflife-0.0.1.war &"
+      become: true
